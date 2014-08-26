@@ -64,6 +64,7 @@ curl -XDELETE 'localhost:9200/_river/my_jdbc_river'
 
 postgresql jdbc river:
 download from: http://jdbc.postgresql.org/download.html#current
+wget http://jdbc.postgresql.org/download/postgresql-9.3-1102.jdbc41.jar
 
 river-mongodb: ( see https://github.com/richardwilly98/elasticsearch-river-mongodb )
 sudo elasticsearch/bin/plugin --install com.github.richardwilly98.elasticsearch/elasticsearch-river-mongodb/2.0.1
