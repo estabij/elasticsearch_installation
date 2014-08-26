@@ -68,8 +68,20 @@ wget http://jdbc.postgresql.org/download/postgresql-9.3-1102.jdbc41.jar
 
 river-mongodb: ( see https://github.com/richardwilly98/elasticsearch-river-mongodb )
 sudo elasticsearch/bin/plugin --install com.github.richardwilly98.elasticsearch/elasticsearch-river-mongodb/2.0.1
+
+you also have to initialise a replica set for the river to work:
+1. open /etc/mongod.conf and add:
+replSet=rs0
+oplogSize=100
+2. service mongod restart
+3. open mongo shell and type: 
+rs.initiate()
+restart elastic search again:
+sudo service elasticsearch restart
+now with tail -f /var/log/elasticsearch/elasticsearch.log you should see no errors
+with elastic-search head you can examine the rivers and results.
   
-install river "mongodb"
+install river "mongodb" with:
 curl -XPUT 'http://localhost:9200/_river/mongodb/_meta' -d '{ 
     "type": "mongodb", 
     "mongodb": { 
