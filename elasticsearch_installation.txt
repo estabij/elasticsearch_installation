@@ -4,6 +4,7 @@
 4. mkdir /var/log/elasticsearch
 5. copy the provided startup script to /etc/init.d/elasticsearch
 6. start Elastic Search: sudo service elasticsearch start.
+To automatically start/stop the service you can also add a symlink to /etc/init.d/elasticsearch in the /etc/rc* directories.
 7. check to see if its running: http://localhost:9200/
 and open for any host: http://<ipaddress>:9200
 check if the /var/run/elasticsearch.pid is there and the logs in /var/log/elasticsearch
